@@ -156,7 +156,7 @@ most_popular_job(data)
 #
 # The function should return the total number of cases
 # registered so far in that country
-
+prueba = 'prueba'
 
 # 8)
 # Create a function called "total_registered_cases_per_country"
