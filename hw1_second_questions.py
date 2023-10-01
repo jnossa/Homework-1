@@ -22,7 +22,14 @@
 # has worked as job_title.
 
 def has_experience_as(cv: dict, job: str):
+    # Returns all users with experience in `job`
     return [k['user'] for k in cv if any([True if j == job else False for j in k["jobs"]])]
+
+data = [{'user': 'john', 'jobs': ['analyst', 'engineer']},
+        {'user': 'jane', 'jobs': ['finance', 'software']},
+        {'user': 'jack', 'jobs': ['engineer', 'software', 'lawyer']}]
+
+has_experience_as(data, 'engineer')
 
 # %%
 
@@ -83,28 +90,30 @@ def most_popular_job(data):
 
     # Iterate through each dictionary in the list
     for entry in data:
-        # Get the 'jobs' list for the user (default to an empty list)
-        user_jobs = entry.get('jobs', [])
-
+        user_jobs = entry.get('jobs', [])  # Get the 'jobs' list for the user (default to an empty list)
+        
         # Iterate through the jobs for the current user
         for job in user_jobs:
             # Update the job counts dictionary
             if job in job_counts:
-                # Increment the count if the job already exists
-                job_counts[job] += 1
+                job_counts[job] += 1  # Increment the count if the job already exists
             else:
-                # Initialize the count if the job is encountered for the first time
-                job_counts[job] = 1
+                job_counts[job] = 1  # Initialize the count if the job is encountered for the first time
 
     # Find the most popular job and its count
-    most_popular = max(job_counts.items(),
-                       key=lambda x: x[1], default=(None, 0))
+    max_count = max(job_counts.values(), default=0)
+    most_popular_jobs = [(job, count) for job, count in job_counts.items() if count == max_count]
 
-    return most_popular
+    # If there is only one most popular job, return a tuple
+    if len(most_popular_jobs) == 1:
+        return most_popular_jobs[0]
 
+    return most_popular_jobs
 
 data = [{'user': 'john', 'jobs': ['software', 'engineer']},
         {'user': 'jane', 'jobs': ['finance', 'software']},
         {'user': 'jack', 'jobs': ['engineer', 'software', 'lawyer']}]
 
 most_popular_job(data)
+
+# %%
