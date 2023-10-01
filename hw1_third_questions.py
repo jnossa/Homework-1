@@ -19,12 +19,17 @@ covid_data = {'Spain': [4, 8, 2, 0, 1],
 
 def total_registered_cases(covid_dict, country_name):
     for key, value in covid_dict.items():
+        # Iterate through each item of the dictionary
         return sum(covid_dict.get(country_name, []))
+    # Get the sum of the value (list) of the key "country_name"
     return total_cases
 
 
 country_name = 'Italy'
+# Define the country name
+
 total_cases = total_registered_cases(covid_data, country_name)
+# Call the function
 print(total_cases)
 
 # %%
@@ -43,12 +48,16 @@ country_sum = {}
 
 def total_registered_cases_per_country(covid_dict):
     for key, values in covid_dict.items():
+        # iterate through each item of the dictionary
         sum_country = sum(values)
+        # get the sum of the values
         country_sum[key] = sum_country
+        # add the sum as value to each key
     return country_sum
 
 
 country_sum = total_registered_cases_per_country(covid_data)
+# call the function
 print(country_sum)
 
 
@@ -63,10 +72,15 @@ print(country_sum)
 
 def country_with_most_cases(covid_dict):
     max_case_country = ()
+    # Initialize an empty tuple to store the country with the most cases
     cases_by_country = total_registered_cases_per_country(covid_data)
+    # Call the function "total_registered_cases_per_country" to get the dictionary with the total cases per country
     for key, value in cases_by_country.items():
+        # Iterate through each item of the dictionary
         return max(cases_by_country.items(), key=lambda x: x[1])
+    # Get the country with the most cases
 
 
 max_case_country = country_with_most_cases(covid_data)
+# Call the function
 print(max_case_country)
