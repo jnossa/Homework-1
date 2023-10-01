@@ -25,8 +25,7 @@ with open('/Users/guillemmirabentrubinat/Library/CloudStorage/OneDrive-Personal/
 
 for row in list_of_countries:
     print(row)
-# Here we use a line just once in order to remove the header
-#list_of_countries.remove(list_of_countries[0])
+
 
 list_of_plus_500 = []
 list_of_plus_1000 = []
