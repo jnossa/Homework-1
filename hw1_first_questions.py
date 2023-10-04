@@ -1,3 +1,4 @@
+#%%
 # 1)
 # Create a function named
 # "triple" that takes one
@@ -8,6 +9,8 @@
 def triple(x: int):
     return (3 * x)
 
+print(triple(3))
+
 # %%
 # 2)
 # Create a function named "subtract" that
@@ -16,8 +19,11 @@ def triple(x: int):
 #
 
 
-def substract(a: int, b: int):
+def subtract(a: int, b: int):
     return (a - b)
+
+print(subtract(3, 2))
+
 # %%
 # 3)
 # Create a function called "dictionary_maker"
@@ -31,7 +37,12 @@ def substract(a: int, b: int):
 # it should return {'foo': 1, 'bar': 3}
 # You should program the function and not use
 # the function "dict" directly
-
+list1 = [('foo', 1), ('bar', 3)]
 
 def dictionary_maker(x: tuple):
     return dict((i[0], i[1]) for i in x)
+
+print(dictionary_maker(list1))
+
+
+# %%
