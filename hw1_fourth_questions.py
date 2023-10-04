@@ -12,7 +12,7 @@ import csv
 
 list_of_countries = []
 
-with open('/Users/guillemmirabentrubinat/Library/CloudStorage/OneDrive-Personal/BSE/Computing for Data Science/Problem Sets/hw1/covid.csv', 'r') as file:
+with open('covid.csv', 'r') as file:
     
     reader = csv.reader(file)
 
